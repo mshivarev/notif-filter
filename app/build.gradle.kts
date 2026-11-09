@@ -20,7 +20,9 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = true
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"))
             // Личная сборка: подписываем debug-ключом, чтобы APK сразу ставился на телефон.
             signingConfig = signingConfigs.getByName("debug")
         }
@@ -44,5 +46,6 @@ dependencies {
     implementation("androidx.compose.material:material-icons-core")
     implementation("androidx.activity:activity-compose:1.10.1")
     implementation("androidx.core:core-ktx:1.16.0")
+    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.9.1")
     testImplementation("junit:junit:4.13.2")
 }
